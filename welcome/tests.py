@@ -1,6 +1,7 @@
 import os
 
 from .models import PageView
+from .models import Info_membres
 from .database import info
 from django.test import TestCase
 
