@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import PageView
 from .models import Info_membres
+from .models import ref_liste_de_cours
 
 # Register your models here.
 
