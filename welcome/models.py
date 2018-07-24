@@ -51,7 +51,7 @@ class info_suivi(models.Model):
      date = models.DateTimeField('date de modification')
      modified_by = models.ForeignKey(ref_Staff, on_delete=None)
 
-class transaction_financiere
+class transaction_financiere(models.Model):
      numero =  models.ForeignKey(Info_membres, on_delete=models.CASCADE)
      transaction = models.ForeignKey(ref_type_de_transaction, on_delete=None)
      montant = models.IntegerField()
