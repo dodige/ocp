@@ -3,5 +3,5 @@ django-debug-toolbar==1.8
 gunicorn==19.5.0
 psycopg2==2.7.3.1
 whitenoise==3.3.1
-django_filters
-pillow
+django_filter==2.0.0
+pillow==5.2.0
