@@ -1,0 +1,57 @@
+{% block content %}
+
+ <li> <a href="/vtapp"> Acceuil </a> --<a href="/vtapp/get_name"> ajout Membres </a>--  <a href="/vtapp/membres"> Info Membres </a>--  <a href="/vtapp/finances"> finance </a> --
+
+  <h1>membres Detail</h1>
+
+
+
+
+        <ul>
+
+      <li>
+        {{ object }}
+      </li>
+
+  </ul>
+
+
+              {% if suivi_list %}
+              <ul>
+                   {% for info_suivi in suivi_list %}
+
+                       {% if info_suivi.numero_de_membre == object %}
+                           <br>
+                           <b>suivi du {{ info_suivi.date }}</b>
+                          <li>
+                               {{info_suivi.suivi_detail}}
+                          </li>
+                           <b>Derniere modification par {{ info_suivi.modified_by }} </b>
+                          <br>
+                       {% endif %}
+
+                   {% endfor %}
+              </ul>
+              {% else %}
+                   <p>There are no suivi in the library.</p>
+              {% endif %}
+   <br>Ajouter un suivi<br>
+
+
+
+
+    <form action="/vtapp/get_suivi/?pk={{ object.pk }}" method="post">
+    {% csrf_token %}
+
+        {%  if suivi_form %}
+               {{ suivi_form.as_p }}
+        {%  else %}
+                {{ form.as_p }}
+        {%  endif %}
+
+
+    <input type="submit" value="Ajouter Suivi {{ object.pk }}"/>
+    </form>
+
+
+{% endblock %}

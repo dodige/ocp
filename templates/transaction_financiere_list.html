@@ -1,0 +1,26 @@
+
+{% block content %}
+  <li> <a href="/vtapp"> Acceuil </a> --<a href="/vtapp/get_name"> ajout Membres </a>--  <a href="/vtapp/membres"> Info Membres </a>--  <a href="/vtapp/finances"> finance </a> --
+
+
+  <h1>transaction List</h1>
+
+ En ordre de :  <a href="/vtapp/transactionList/?ordering=numero_de_membre"> Numero de membre    </a> <a>----</a> <a href="/vtapp/transactionList/?ordering=date"> Date    </a><a>----</a>  <a href="/vtapp/transactionList/?ordering=transaction">   Type de Transaction </a> <a>----</a> <br>
+
+ Filtre  :  <a href="/vtapp/transactionList/?ordering=numero_de_membre"> Visiteur  </a> <a>----</a>
+            <a href="/vtapp/transactionList/?ordering=numero_de_membre"> Membre  </a> <a>----</a>
+            <a href="/vtapp/transactionList/?ordering=numero_de_membre"> ouvrier  </a> <a>----</a>
+            <a href="/vtapp/transactionList/?ordering=numero_de_membre"> toutes la liste  </a> <a>----</a>
+
+  {% if object_list %}
+  <ul>
+    {% for info_tx in object_list %}
+      <li>
+        <a href="{% url 'transactionDetail' info_tx.pk %}">{{ info_tx.numero_de_membre.numero_de_membre }} {{info_tx.numero_de_membre.statut}} {{info_tx.transaction}} {{info_tx.date}} {{info_tx.modified_by}} </a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no transaction in the library.</p>
+  {% endif %}
+{% endblock %}

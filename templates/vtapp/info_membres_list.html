@@ -1,0 +1,19 @@
+
+{% block content %}
+
+<li> <a href="/vtapp"> Acceuil </a> --<a href="/vtapp/get_name"> ajout Membres </a>--  <a href="/vtapp/membres"> Info Membres </a>--  <a href="/vtapp/finances"> finance </a> --
+
+
+  <h1>membres List</h1>
+  {% if object_list %}
+  <ul>
+    {% for info_membres in object_list %}
+      <li>
+        <a href="{% url 'membres-detail' info_membres.pk %}">{{ info_membres.prenom }}</a> {{info_membres.nom}}
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no membres in the library.</p>
+  {% endif %}
+{% endblock %}

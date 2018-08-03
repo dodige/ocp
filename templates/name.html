@@ -1,0 +1,7 @@
+<li> <a href="/vtapp"> Acceuil </a> --<a href="/vtapp/get_name"> ajout Membres </a>--  <a href="/vtapp/membres"> Info Membres </a>--  <a href="/vtapp/finances"> finance </a> --
+
+<form action="/vtapp/get_name/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Enregistrer" />
+</form>

@@ -1,0 +1,22 @@
+
+
+
+
+{% block content %}
+
+<li> <a href="/vtapp"> Acceuil </a> --<a href="/vtapp/get_name"> ajout Membres </a>--  <a href="/vtapp/membres"> Info Membres </a>--  <a href="/vtapp/finances"> finance </a> --
+
+
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for tx in filter.qs %}
+
+    <li> <a href="{% url 'transactionDetail' tx.pk %}">{{ tx.numero_de_membre.numero_de_membre }} {{tx.numero_de_membre.statut}} {{tx.transaction}} {{tx.date}} {{tx.modified_by}} </a></li>
+
+  {% endfor %}
+  </ul>
+{% endblock %}
+
