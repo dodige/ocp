@@ -11,6 +11,7 @@ urlpatterns = [
 
     url(r'^$', index),
     url(r'^health$', health),
+    url(r'^vt$', health),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^vtapp/', include('vtapp.urls')),
 ]
